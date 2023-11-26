@@ -14,7 +14,28 @@ public class Problema03 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        int i = 2;
+        int limite = 3;
+        String cadena = " ";
+        //System.out.println(i);
+        System.out.println(i);
+        do {
+            i = i + limite;
+            limite = limite + 2;
+
+            cadena = String.format("%s", i);
+            System.out.println(cadena);
+
+        } while (i < 37);
+
     }
-    
+
 }
+
+/*2   +3 
+5   + 5
+10  +7
+17   +9         do -while
+26   +11
+37
+ */
