@@ -19,36 +19,73 @@ public class Problema01 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
-
+       //String reporte = ""
+        String apellido;
+        String nombresCompl = " ";
+        String cadena = " ";
         String nombre;
         String posicion;
         int edad;
         double estatura;
-        String  opc; 
+        boolean bandera = true;
+        int salida;
+        int cant = 1;
+        double promedioEdad;
+        double promedioEstaturas;
+        int sumaEdades = 0;
+        int sumaEstaturas = 0;
 
         do {
-            System.out.print("Ingrese el nombre del jugador: ");
+            System.out.println("Ingrese el nombre del Jugador: ");
             nombre = entrada.nextLine();
 
-            System.out.print("Ingrese la posición del jugador: ");
+            System.out.println("Ingrese el apellido del Jugador: ");
+            apellido = entrada.nextLine();
+
+            System.out.println("Ingrese la posición en el campo: ");
             posicion = entrada.nextLine();
-
-            System.out.print("Ingrese la edad del jugador: ");
+            System.out.println("Ingrese la edad del Jugador: ");
             edad = entrada.nextInt();
-            entrada.nextLine(); // Limpiar el buffer
-
-            System.out.print("Ingrese la estatura del jugador: ");
+            System.out.println("Ingrese la estatura del Jugador");
             estatura = entrada.nextDouble();
-            entrada.nextLine(); // Limpiar el buffer
-            System.out.print("desea ingresar otro jugador _"
-                    + "precione (s/n) ");
-            estatura = entrada.nextDouble();
-            while (opc = "s");
+            nombresCompl = String.format("%s %s", nombre, 
+                    apellido).toUpperCase();
 
+            cant = cant + 1;
+            cadena = String.format("%s. %s -%s-,edad %s, estatura  %s\n"
+                    , cant, nombresCompl, posicion, edad,
+                    estatura);
             
+            cadena = cadena + cadena;
 
-          
+            System.out.println("Ingrese (1) si desea salir del ciclo; "
+                    + "cualquier otro número para continuar");
+            salida = entrada.nextInt();
 
+            sumaEdades = sumaEdades + edad;
+
+            promedioEdad = (double) sumaEdades / cant;
+            promedioEstaturas = (double) sumaEstaturas / cant;
+
+            if (salida == 1) {
+                bandera = false;
+            }
+
+            entrada.nextLine();
+        } while (bandera);
         
-                
-    
+        
+        
+        
+        
+        
+        
+        
+        //reporte = String.format("%s\ns%", promedioEdad, promedioEstaturas);
+        
+        System.out.printf("----Listado de jugadores ----\n%s\n", cadena);
+        System.out.printf("Promedio de edades:%s\nPomedio de estaturas:%s"
+                ,promedioEdad, promedioEstaturas);
+
+    }
+}
